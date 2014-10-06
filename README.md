@@ -33,13 +33,15 @@ lifeTime : time of life (ms) / number / default = 4000
 ```
 default options is :
 ```html
+{
 statusTitle : "",
 statusText : "",
 status : "note",
 lifeTime : 4000,
-setConfirm : false,
+setConfirm : ["ok","no,tanks"],//topics of accept and cancel buttons [if use /setConfirm :true/ show default buttons ]
 accept : function(){ //run when click accept button },
 cancel :function(){ //run when click cancel button }
+}
 ```
 
 3)destroy existing box
