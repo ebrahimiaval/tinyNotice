@@ -8,9 +8,9 @@ JQuery Notification Plugin  for tiny notifications with simple configuration
 
 ```html
 <script>
-$(function () {
-	$.tinyNotice( ["statusTitle"] ,"statusText",["status"],[lifeTime]);
-});
+	$(function () {
+		$.tinyNotice( ["statusTitle"] ,"statusText",["status"],[lifeTime]);
+	});
 </script>
 ```
 
@@ -26,9 +26,9 @@ lifeTime : time of life (ms) / number / default = 4000
 2)optional [json object] conifg and using
 ```html
 <script>
-$(function () {
-	$.tinyNotice({options}); 
-});
+	$(function () {
+		$.tinyNotice({options}); 
+	});
 </script>
 ```
 default options is :
