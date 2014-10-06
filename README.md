@@ -38,11 +38,14 @@ statusTitle : "",
 statusText : "",
 status : "note",
 lifeTime : 4000,
-setConfirm : ["ok","no,tanks"],//topics of accept and cancel buttons [if use /setConfirm :true/ show default buttons ]
+setConfirm : false,//hide buttons and show close button on top-left of box to close
 accept : function(){ //run when click accept button },
 cancel :function(){ //run when click cancel button }
 }
 ```
-
+ to set option.setConfirm you can use 2 options:
+ 1- boolean : if "true" show buttons by default topics .default is "false" and buttons are hidden;
+ 2-array : for exampel : ["ok","no,tanks"] //change topics of accept and cancel buttons 
+ 
 3)destroy existing box
 $.tinyNotice("destroy"); //remove tinyNotice
