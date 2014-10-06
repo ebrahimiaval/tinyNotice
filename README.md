@@ -43,8 +43,8 @@ accept : function(){ //run when click accept button },
 cancel :function(){ //run when click cancel button }
 }
 ```
-```html
  to set option.setConfirm you can use 2 options:
+```text
  1- boolean : if "true" show buttons by default topics .default is "false" and buttons are hidden;
  2-array : for exampel : ["ok","no,tanks"] //change topics of accept and cancel buttons 
  ```
