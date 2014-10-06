@@ -12,7 +12,7 @@ JQuery Notification Plugin  for tiny notifications with simple configuration
 ---------> "status" : use this [note,warning,success,error,info] / string / default = "note"
 ---------> lifeTime : time of life (ms) / number / default = 4000
 
-3>[code] $.tinyNotice({options}); [/code]
+3> $.tinyNotice({options}); 
 ---------------------------------->default options is :
 ---------> statusTitle : "",
 ---------> statusText : "",
