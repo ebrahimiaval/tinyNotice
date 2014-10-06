@@ -52,8 +52,8 @@
 
 
 
-$(".tinyNoticeContainer > span").click(function (){
-   $(this).closest(".tinyNoticeContainer").hide('slide',{direction:"right",mode:"hide"},300);
+$(".tinyNotice_container > span").click(function (){
+   $(this).closest(".tinyNotice_container").hide('slide',{direction:"right",mode:"hide"},300);
 });
 
 
