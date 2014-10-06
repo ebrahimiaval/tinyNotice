@@ -32,7 +32,7 @@ lifeTime : time of life (ms) / number / default = 4000
 </script>
 ```
 default options is :
-```html
+```js
 {
 statusTitle : "",
 statusText : "",
@@ -43,9 +43,11 @@ accept : function(){ //run when click accept button },
 cancel :function(){ //run when click cancel button }
 }
 ```
+```html
  to set option.setConfirm you can use 2 options:
  1- boolean : if "true" show buttons by default topics .default is "false" and buttons are hidden;
  2-array : for exampel : ["ok","no,tanks"] //change topics of accept and cancel buttons 
+ ```
  
 3)destroy existing box
 $.tinyNotice("destroy"); //remove tinyNotice
