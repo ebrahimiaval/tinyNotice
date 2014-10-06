@@ -1,27 +1,52 @@
-(function($){
-	$.tinyNotice = function(option,ease,callback){
-        option = $.extend({
-            width: 700,
-            start: 1,
-            params: null,
-            redirect: true
-        }, option || {});
-          
-            if(option.params == null) $(this).parent('div').hide();
-            if($.type(ease) != 'string' && $.isFunction(ease)){
-                    callback = ease;
-                    ease = 'linear';
-            }
-            else if($.type(ease) == 'string' && !$.isFunction(callback)){
-                    callback = function(){};
-            }
+//Mr.sinoser
 
-            $.each(option.params,function(i,v){
-                    $('#pointSelector').before('<div class="pointPart" data="'+option.params[i][0]+'" ><div class="pointText">'+option.params[i][1]+'</div><div class="pointPIC"></div></div>');
-            });
+(function($){
+	$.tinyNotice = function(paramet){
+           var option = {};
+           if(arguments.length == 1){//have 1 arguments
+                   if($.type(arguments[0]) == "string" && arguments[0] == "destroy"){
+                       alert("take destroy!!");
+
+                   }else if($.isPlainObject(arguments[0])){
+                        option = arguments[0];
+
+                   }else{
+                       alert("message : " + arguments[0]);//stop running
+                   }
+           }else if(arguments.length > 1){//more than one argument
+                   if(!$.isPlainObject(arguments[0])){
+                       declarationInvalidity();
+                   }else{
+                       alert("$.tinyNotice plugin configured by invalid arguments!!");
+                   }  
+           }else{//have 0 argument
+               declarationInvalidity();//stop running
+           }
+           
+           //extend options
+            option = $.extend({
+                statusText : "$.tinyNotice erorr: notice text not set!",
+                status : "note",
+                lifeTime : 4000,
+                setConfirmBtn : ["lngFA"]
+            }, option || {});
+           
+           //use for invalid arguments
+           function declarationInvalidity(){
+               alert("$.tinyNotice plugin configured by invalid arguments!!");
+               return;
+           }
+           
+           //use for destroy notice box
+           function destroy(){
+               
+           }
+           
+          
 	}
 }(jQuery));
 
+     $.tinyNotice("destroy");
 
 
 
