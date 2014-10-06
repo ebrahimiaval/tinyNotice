@@ -52,8 +52,8 @@
 
 
 
-$(".tinyNotice_container > span").click(function (){
-   $(this).closest(".tinyNotice_container").hide('slide',{direction:"right",mode:"hide"},300);
+$("div[class ^= tinyNotice_status_]:first > span").click(function (){
+   $(this).parent().hide('slide',{direction:"right",mode:"hide"},300);
 });
 
 
