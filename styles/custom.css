@@ -16,6 +16,7 @@ div[class ^= tinyNotice_status_]{
     direction: rtl;
     max-width: 350px;
     font-size: 1rem;
+    display: none;
 }
 div[class ^= tinyNotice_status_] > span{
     position: absolute;

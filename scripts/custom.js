@@ -6,35 +6,75 @@
 	$.tinyNotice = function(paramet){
            var option = {};
            if(arguments.length == 1){//have 1 arguments
-                   if($.type(arguments[0]) == "string" && arguments[0] == "destroy"){
-                       //alert("take destroy!!");
+                if($.isPlainObject(arguments[0])){//if is a object
+                        option = arguments[0];//set to extand potions
+                }else if($.type(arguments[0]) == "string" && arguments[0] == "destroy"){
+                    destroy();
+                }else{//use for text
+                    option.statusText = arguments[0];
+                }
+           }else if(arguments.length == 2){
+                if($.type(arguments[0]) == "string"){
+                    if($.type(arguments[1]) == "string"){
+                        if( isStatus($.type(arguments[1])) ){
+                            option.statusText = arguments[0];
+                            option.status = arguments[1];
+                        }else{
+                            option.statusTitle = arguments[0];
+                            option.statusText = arguments[1];
+                        }
+                    }else if( $.type(arguments[1])=="number" ){
+                            option.statusText = arguments[0];
+                            option.lifeTime = arguments[1];
+                    }else{
+                        isInvalid();//stop running
+                    }
+                }else{
+                    isInvalid();//stop running
+                }
+           }else if(arguments.length == 3){
+               if($.type(arguments[0]) == "string"){
+                    if($.type(arguments[1]) == "string"){
+                        if( isStatus($.type(arguments[1])) ){
+                            option.statusText = arguments[0];
+                            option.status = arguments[1];
+                        }else{//isStatus($.type(arguments[1]) == false
+                            option.statusTitle = arguments[0];
+                            option.statusText = arguments[1];
+                        }
+                    }else{//$.type(arguments[1])!="string"
+                        isInvalid();//stop running
+                    }
 
-                   }else if($.isPlainObject(arguments[0])){
-                        option = arguments[0];
-
-                   }else{
-                       //alert("message : " + arguments[0]);//stop running
-                   }
-           }else if(arguments.length > 1){//more than one argument
-                   if(!$.isPlainObject(arguments[0])){
-                       declarationInvalidity();
-                   }else{
-                       alert("$.tinyNotice plugin configured by invalid arguments!!");
-                   }  
+                    if( $.type(arguments[2])=="number" ){
+                            option.lifeTime = arguments[2];
+                    }else{//$.type(arguments[2])!="number"
+                        isInvalid();//stop running
+                    }
+                }else{//$.type(arguments[0])!="string"
+                    isInvalid();//stop running
+                }              
+           }else if(arguments.length == 4){
+                option.statusTitle = arguments[0];
+                option.statusText = arguments[1];
+                option.status = arguments[2];
+                option.lifeTime = arguments[3];   
            }else{//have 0 argument
-               declarationInvalidity();//stop running
+               isInvalid();//stop running
            }
            
            //extend options
             option = $.extend({
-                statusText : "$.tinyNotice erorr: notice text not set!",
-                status : "note",
+                statusTitle : "",
+                statusText : "",
+                status : "warning",
                 lifeTime : 4000,
-                ConfirmBtn : true
+                setConfirm : false,
             }, option || {});
            
+
            
-           
+           /*************************************actions*********************/
            
            $("div[class ^= tinyNotice_status_]:first > span").click(function (){
                 destroy();
@@ -43,23 +83,37 @@
            /*************************************functions*********************/
            
            //use for invalid arguments
-           function declarationInvalidity(){
+           function isInvalid(){
                alert("$.tinyNotice plugin configured by invalid arguments!!");
-               return;
+               return "invalid";
            }
            
-           //use for destroy notice box
-           function noticeEntityBuilder(){
-               //add HTML pattern in body tag
-               $("body").prepend('<div><span></span><strong></strong><p></p></div>');
+           //cheching text to be satus
+           function isStatus(param){
+               switch(param){
+                   case "worning" : return "worning";break;
+                   case "success" : return "success";break;
+                   case "error" : return "error";break;
+                   case "note" : return "note";break;
+                   case "info" : return "info";break;
+                   default: return false;
+               }
+           }
+           
+            //build
+           function build(){
+                $("div[class ^= tinyNotice_status_]").remove();
+                var HTMLview = '<div class="tinyNotice_status_warning"><span></span><strong>'+option.statusTitle+'</strong><p>'+option.statusText+'</p></div>';
+                $("body").prepend(HTMLview);
            }
            
            //destroy 
-           function destroy(){
+           function destroy(callback){
                 $("div[class ^= tinyNotice_status_]:first")
                     .stop()
                     .clearQueue()
-                    .hide('slide',{direction:"right",mode:"hide"},300);
+                    .hide('slide',{direction:"right",mode:"hide"},200,callback);
+                return "Destroyed";
            } 
 	}
 }(jQuery));
