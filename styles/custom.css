@@ -2,7 +2,7 @@
 /* custom style sheet */
 
 body{font-family: tahoma;}
-
+small{color: #999;}
 
 
 
@@ -66,14 +66,63 @@ div[class ^= tinyNotice_status_] > p{
 
 /*****************warning****************/
 .tinyNotice_status_warning{
-    background-color: #2ecc71;
-    border-right: 8px solid #209853;
+    background-color: #dc9a1d;
+    border-right: 8px solid #a47213;
     color: #fff;
 }
-.tinyNotice_status_warning > span{background-color: #2bbd69;}
+.tinyNotice_status_warning > span{background-color: #cc8f1b;}
 
-.tinyNotice_status_warning > span:hover{background-color: #15723d;}
+.tinyNotice_status_warning > span:hover{background-color: #7c560b;}
 
-.tinyNotice_status_warning > strong{color: #15723d;}
+.tinyNotice_status_warning > strong{color: #7c560b;}
 
-.tinyNotice_status_warning > p{border-right: 2px solid #2bbd69;}
+.tinyNotice_status_warning > p{border-right: 2px solid #cc8f1b;}
+
+
+
+/*****************erorr****************/
+.tinyNotice_status_error{
+    background-color: #cc2e35;
+    border-right: 8px solid #982025;
+    color: #fff;
+}
+.tinyNotice_status_error > span{background-color: #bd2b31;}
+
+.tinyNotice_status_error > span:hover{background-color: #721518;}
+
+.tinyNotice_status_error > strong{color: #721518;}
+
+.tinyNotice_status_error > p{border-right: 2px solid #bd2b31;}
+
+
+
+
+/*****************erorr****************/
+.tinyNotice_status_info{
+    background-color: #2ec8cc;
+    border-right: 8px solid #209598;
+    color: #fff;
+}
+.tinyNotice_status_info > span{background-color: #2bb9bd;}
+
+.tinyNotice_status_info > span:hover{background-color: #156280;}
+
+.tinyNotice_status_info > strong{color: #156280;}
+
+.tinyNotice_status_info > p{border-right: 2px solid #2bb9bd;}
+
+
+
+/*****************erorr****************/
+.tinyNotice_status_note{
+    background-color: #888888;
+    border-right: 8px solid #5c5c5c;
+    color: #fff;
+}
+.tinyNotice_status_note > span{background-color: #747474;}
+
+.tinyNotice_status_note > span:hover{background-color: #363636;}
+
+.tinyNotice_status_note > strong{color: #363636;}
+
+.tinyNotice_status_note > p{border-right: 2px solid #747474;}

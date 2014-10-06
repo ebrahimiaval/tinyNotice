@@ -7,13 +7,13 @@
            var option = {};
            if(arguments.length == 1){//have 1 arguments
                    if($.type(arguments[0]) == "string" && arguments[0] == "destroy"){
-                       alert("take destroy!!");
+                       //alert("take destroy!!");
 
                    }else if($.isPlainObject(arguments[0])){
                         option = arguments[0];
 
                    }else{
-                       alert("message : " + arguments[0]);//stop running
+                       //alert("message : " + arguments[0]);//stop running
                    }
            }else if(arguments.length > 1){//more than one argument
                    if(!$.isPlainObject(arguments[0])){
@@ -33,6 +33,15 @@
                 ConfirmBtn : true
             }, option || {});
            
+           
+           
+           
+           $("div[class ^= tinyNotice_status_]:first > span").click(function (){
+                destroy();
+            });
+           
+           /*************************************functions*********************/
+           
            //use for invalid arguments
            function declarationInvalidity(){
                alert("$.tinyNotice plugin configured by invalid arguments!!");
@@ -40,21 +49,23 @@
            }
            
            //use for destroy notice box
-           function destroy(){
-               
+           function noticeEntityBuilder(){
+               //add HTML pattern in body tag
+               $("body").prepend('<div><span></span><strong></strong><p></p></div>');
            }
            
-          
+           //destroy 
+           function destroy(){
+                $("div[class ^= tinyNotice_status_]:first")
+                    .stop()
+                    .clearQueue()
+                    .hide('slide',{direction:"right",mode:"hide"},300);
+           } 
 	}
 }(jQuery));
 
-     //$.tinyNotice("destroy");
 
 
-
-$("div[class ^= tinyNotice_status_]:first > span").click(function (){
-   $(this).parent().hide('slide',{direction:"right",mode:"hide"},300);
-});
 
 
 
