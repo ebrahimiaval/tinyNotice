@@ -27,24 +27,18 @@ lifeTime : time of life (ms) / number / default = 4000
 ```html
 <script>
 $(function () {
-	  $.tinyNotice({options}); 
+	$.tinyNotice({options}); 
 });
 </script>
 ```
 default options is :
 ```html
 statusTitle : "",
-
 statusText : "",
-
 status : "note",
-
 lifeTime : 4000,
-
 setConfirm : false,
-
 accept : function(){ //run when click accept button },
-
 cancel :function(){ //run when click cancel button }
 ```
 
