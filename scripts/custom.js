@@ -30,7 +30,7 @@
                 statusText : "$.tinyNotice erorr: notice text not set!",
                 status : "note",
                 lifeTime : 4000,
-                setConfirmBtn : ["lngFA"]
+                ConfirmBtn : true
             }, option || {});
            
            //use for invalid arguments
