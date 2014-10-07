@@ -27,6 +27,7 @@ use for fast notice.the below codes show all inline otions;
 </script>
 ```
 option description :
+
 --------------------------------------------------------------------------------
 "statusTitle" : title of notice / type:string / default = ""
 
@@ -35,6 +36,7 @@ option description :
 "status" : use One of status [note,warning,success,error,info] / type:string / default = "note"
 
 lifeTime : time of life (ms) / type:number / default = 4000
+
 --------------------------------------------------------------------------------
 
 examples : 
