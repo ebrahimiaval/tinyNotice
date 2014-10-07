@@ -106,3 +106,8 @@ destroy tinyNotice [use for unlimited lifeTime or its expiration lifeTime has no
 ```js
 $.tinyNotice("destroy"); //remove tinyNotice
 ```
+## License
+Copyright (c) 2014 Mr.sinoser [mohammad ebrahimi aval](http://sinoser.ir) 
+
+Licensed under the [MIT license][mit].
+[mit]: http://www.opensource.org/licenses/mit-license.php
