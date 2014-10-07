@@ -14,8 +14,10 @@ div[class ^= tinyNotice_status_]{
     right: 0px;
     padding: 15px;
     direction: rtl;
-    max-width: 350px;
-    font-size: 1rem;
+    max-width: 400px;
+    min-width: 100px;
+    font-size: 18px;
+    font-family: tahoma;
     display: none;
     overflow: hidden;
 }
@@ -42,9 +44,6 @@ div[class ^= tinyNotice_status_] > p{
     margin-top: 5px;
     padding: 5px;
     padding-left:0px;
-}
-.tinyNotice_confirmBtn{
-    display: none;
 }
 .tinyNotice_confirmBtn > button{
     box-sizing:border-box;
