@@ -124,9 +124,9 @@ var tinyNoticeSetTimeOutVar = null;
                         cancelBtnTopic = tnOptions.setConfirm[1];
                     }  
                     
-                    buttonView = '<button class="tinyNotice_confirmBtn_ok">'+
+                    buttonView = '<div class="tinyNotice_confirmBtn"><button class="tinyNotice_confirmBtn_ok">'+
                                  okBtnTopic+'</button><button class="tinyNotice_confirmBtn_cancel">'+
-                                 cancelBtnTopic+'</button>';
+                                 cancelBtnTopic+'</button></div>';
                         
                     closeBtnView = "";
                     tnOptions.lifeTime = 0;
@@ -136,8 +136,8 @@ var tinyNoticeSetTimeOutVar = null;
                                 className+'">'+
                                 closeBtnView+'<strong>'+
                                 tnOptions.statusTitle+'</strong><p>'+
-                                tnOptions.statusText+'</p><div class="tinyNotice_confirmBtn">'+
-                                buttonView+'</div></div>';
+                                tnOptions.statusText+'</p>'+
+                                buttonView+'</div>';
                 $("body").prepend(HTMLview); 
                 
                 $("div[class ^= tinyNotice_status_]:first").show('slide',{direction:"right"},200,function(){ $(".tinyNotice_confirmBtn").slideDown(100);});
@@ -158,6 +158,8 @@ var tinyNoticeSetTimeOutVar = null;
                     window.clearInterval(tinyNoticeSetTimeOutVar);
                 if(tnOptions.lifeTime)
                     tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },tnOptions.lifeTime);
+                
+                return "rebuild";
            }
            
            //destroy 
@@ -165,18 +167,29 @@ var tinyNoticeSetTimeOutVar = null;
                 if(!callback)
                     callback = function(){};
                 
-               $(".tinyNotice_confirmBtn").slideUp(100,function(){
-                    $(this)
-                        .parent("div[class ^= tinyNotice_status_]")
-                        .stop()
-                        .clearQueue()
-                        .hide('slide',{direction:"right"},200,function(){
-                            $("div[class ^= tinyNotice_status_]").remove();
-                            callback(tnOptions);
-                        });
-                    if(callback)
-                        return "rebuild";
-                });   
+                if($("div[class ^= tinyNotice_status_] > div").is("div.tinyNotice_confirmBtn")){
+                   $(".tinyNotice_confirmBtn").slideUp(100,function(){
+                        $(this)
+                            .parent("div[class ^= tinyNotice_status_]")
+                            .stop()
+                            .clearQueue()
+                            .hide('slide',{direction:"right"},200,function(){
+                                $("div[class ^= tinyNotice_status_]").remove();
+                                callback(tnOptions);
+                            });
+                    });
+                }else{
+                    $("div[class ^= tinyNotice_status_]")
+                            .stop()
+                            .clearQueue()
+                            .hide('slide',{direction:"right"},200,function(){
+                                $("div[class ^= tinyNotice_status_]").remove();
+                                callback(tnOptions);
+                            });
+                }
+                
+                if(!tnOptions)
+                    return "destory";
            } 
            
            //running
