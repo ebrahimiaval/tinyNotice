@@ -4,13 +4,29 @@
     <meta charset="utf-8">
     <title>Untitled Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- , user-scalable=no -->
-    <!-- styles -->
-        <link rel="stylesheet" href="styles/custom.css">
-    <!-- /styles -->
+    <link rel="stylesheet" href="tinyNotice/FlatTheme.css">
+    <style>
+        body{font-family: tahoma;}
+        small{color: #999;}
+        button{cursor: pointer;}
+    </style>
 </head>
 
 <body>
-
+<!--    
+    <div class="tinyNotice_status_success">
+        <span>X</span>
+        <strong>status Title</strong>
+        <p>
+            status Text
+        </p>
+        <div id="tinyNotice_confirmBtn">
+            <button id="tinyNotice_confirmBtn_ok">تایید</button>
+            <button id="tinyNotice_confirmBtn_cancel">رد</button>
+        </div>
+    </div>
+-->
+    
     <br><!-- --------------------------------------------- -->
     <h2>statusTitle and statusText</h2>
     tinyNotice statusTitle and statusText with default text (is not any text) <small>[is default]</small><button  id="btn2" type="button">try it!</button><br>
@@ -20,17 +36,18 @@
     
     <br><!-- --------------------------------------------- -->
     <h2>status</h2>
-    tinyNotice warning status <small>[is default]</small><button  id="btn6" type="button">try it!</button><br>
+    tinyNotice note status <small>[is default]</small><button  id="btn6" type="button">try it!</button><br>
     tinyNotice success status <small>{status : "success"} </small><button  id="btn7" type="button">try it!</button><br>
-    tinyNotice error status <small>{status : "error"} </small><button  id="btn8" type="button">try it!</button><br>
-    tinyNotice info status <small>{status : "info"} </small><button  id="btn9" type="button">try it!</button><br>
-    tinyNotice note status  <small>{status : "note"} </small><button  id="btn10" type="button">try it!</button><br>
+     tinyNotice warning status  <small>{status : "warning"} </small><button  id="btn8" type="button">try it!</button><br>
+    tinyNotice error status <small>{status : "error"} </small><button  id="btn9" type="button">try it!</button><br>
+    tinyNotice info status <small>{status : "info"} </small><button  id="btn10" type="button">try it!</button><br>
+   
     
     <br><!-- --------------------------------------------- -->
     <h2>lifeTime and destroy</h2>
     tinyNotice with default lifeTime <small>[is 4 second default]</small><button  id="btn11" type="button">try it!</button><br>
     tinyNotice with 1 second lifeTime <small>{lifeTime : 1000} </small><button  id="btn12" type="button">try it!</button><br>
-    tinyNotice with unlimited lifeTime <small>{lifeTime : null} </small><button  id="btn13" type="button">try it!</button><br>
+    tinyNotice with unlimited lifeTime <small>{lifeTime : 0} </small><button  id="btn13" type="button">try it!</button><br>
     destroy tinyNotice [for unlimited lifeTime of its expiration lifeTime has not yet] <small>$.tinyNotice("destroy") </small><button  id="btn14" type="button">try it!</button><br>
     
     <br><!-- --------------------------------------------- -->
@@ -41,7 +58,7 @@
     
     <!-- scripts -->
     	<script src="scripts/jquery-1.11.1.min.js"></script>
-        <script src="scripts/custom.js"></script>
+        <script src="tinyNotice/tinyNotice.js"></script>
         <script>
                 $("#btn2").click(function (){
                     $.tinyNotice({});
@@ -55,61 +72,61 @@
                 $("#btn5").click(function (){
                     $.tinyNotice({
                         statusTitle : " عملیات ایجاد کاربر جدید",
-                        statusText : " کاربر جدید با موفقیت ایجاد شد. برای استفاده از امکانات به بخش دسترسی مراجعه نمایید.",
+                        statusText : " کاربر جدید با موفقیت ایجاد شد. برای استفاده از امکانات به بخش دسترسی مراجعه نمایید."
                     });
                 });
                 $("#btn6").click(function (){
                     $.tinyNotice({
-                        statusTitle : "warning",
-                        statusText : "this is a warning message!",
+                        statusTitle : "note",
+                        statusText : "this is a note! [default]"
                     });
                 });
                 $("#btn7").click(function (){
                     $.tinyNotice({
                         status : "success",
                         statusTitle : "success",
-                        statusText : "this is a success message!",
+                        statusText : "this is a success message!"
                     });
                 });
                 $("#btn8").click(function (){
                     $.tinyNotice({
-                        status : "error",
-                        statusTitle : "error",
-                        statusText : "this is a error message!",
+                        status : "warning",
+                        statusTitle : "warning",
+                        statusText : "this is a warning message!"
                     });
                 });
                 $("#btn9").click(function (){
                     $.tinyNotice({
-                        status : "info",
-                        statusTitle : "info",
-                        statusText : "this is a info message!",
+                        status : "error",
+                        statusTitle : "error",
+                        statusText : "this is a error message!"
                     });
                 });
                 $("#btn10").click(function (){
                     $.tinyNotice({
-                        status : "note",
-                        statusTitle : "note",
-                        statusText : "this is a note!",
+                        status : "info",
+                        statusTitle : "info",
+                        statusText : "this is a info message!"
                     });
                 });
                 $("#btn11").click(function (){
                      $.tinyNotice({
                         statusTitle : "lifeTime",
-                        statusText : "default life time!",
+                        statusText : "default life time!"
                     });
                 });
                 $("#btn12").click(function (){
                     $.tinyNotice({
                         lifeTime : 1000,
                         statusTitle : "lifeTime",
-                        statusText : "1 second life time!",
+                        statusText : "1 second life time!"
                     });
                 });
                 $("#btn13").click(function (){
                     $.tinyNotice({
-                        lifeTime : null,
+                        lifeTime : 0,
                         statusTitle : "lifeTime",
-                        statusText : "unlimited life time!",
+                        statusText : "unlimited life time!"
                     });
                 });
                 $("#btn14").click(function (){
@@ -119,7 +136,13 @@
                     $.tinyNotice({
                         setConfirm:true,
                         statusTitle : "Confirm mod",
-                        statusText : "default button topic!"
+                        statusText : "default button topic!",
+                        accept: function(){
+                            alert("ok");
+                        },
+                        cancel: function(){
+                            alert("cancel");
+                        }
                     });
                 });
                 $("#btn16").click(function (){
@@ -128,6 +151,7 @@
                         statusTitle : "Confirm mod",
                         statusText : "custom button topic!"
                     });
+
                 });
     </script>
     <!-- /scripts -->

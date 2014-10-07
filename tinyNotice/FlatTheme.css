@@ -1,12 +1,12 @@
 @charset "utf-8";
-/* custom style sheet */
-
-body{font-family: tahoma;}
-small{color: #999;}
-
-
-
-/************************common************************/
+/*
+*   About : tinyNotic theme styles
+*   Theme name : Flat
+*   Created and published by : Mr.sinoser [mohammad ebrahimi aval]
+*   publisher site :http://sinoser.ir
+*   publisher blog :http://sinoser.ir/blog
+*/
+/************************commonStyles************************/
 div[class ^= tinyNotice_status_]{
     position: fixed;
     z-index: 900000000;
@@ -17,6 +17,7 @@ div[class ^= tinyNotice_status_]{
     max-width: 350px;
     font-size: 1rem;
     display: none;
+    overflow: hidden;
 }
 div[class ^= tinyNotice_status_] > span{
     position: absolute;
@@ -42,13 +43,68 @@ div[class ^= tinyNotice_status_] > p{
     padding: 5px;
     padding-left:0px;
 }
+.tinyNotice_confirmBtn{
+    display: none;
+}
+.tinyNotice_confirmBtn > button{
+    box-sizing:border-box;
+    height:28px;
+    line-height:26px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding:0 15px;
+    float: left;
+    color:#fff;
+    cursor: pointer;
+    border-radius:3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-size:14px;
+    font-family:tahoma;
+    border:2px solid transparent;
+    outline: none;
+}
+button.tinyNotice_confirmBtn_ok{
+    background-color:#198fff;
+    -webkit-box-shadow : 0 3px #063a93;
+    box-shadow : 0 3px #063a93;
+}
+button.tinyNotice_confirmBtn_cancel{
+    background-color:#df5157;
+    -webkit-box-shadow : 0 3px #992025;
+    box-shadow : 0 3px #992025;
+    
+}
+button.tinyNotice_confirmBtn_ok:hover{
+    background-color:#0071D7;
+    -webkit-box-shadow : 0 3px #042966;
+    box-shadow : 0 3px #042966;		
+}
+button.tinyNotice_confirmBtn_cancel:hover{
+    background-color:#c02930;
+    -webkit-box-shadow : 0 3px #6e0c10;
+    box-shadow : 0 3px #6e0c10;		
+}
+
+
+/*****************noteStatusStyle****************/
+.tinyNotice_status_note{
+    background-color: #888888;
+    border-right: 8px solid #5c5c5c;
+    color: #fff;
+}
+.tinyNotice_status_note > span{background-color: #747474;}
+
+.tinyNotice_status_note > span:hover{background-color: #363636;}
+
+.tinyNotice_status_note > strong{color: #363636;}
+
+.tinyNotice_status_note > p{border-right: 2px solid #747474;}
 
 
 
 
-
-
-/*****************success****************/
+/*****************successStatusStyle****************/
 .tinyNotice_status_success{
     background-color: #2ecc71;
     border-right: 8px solid #209853;
@@ -65,7 +121,7 @@ div[class ^= tinyNotice_status_] > p{
 
 
 
-/*****************warning****************/
+/*****************warningStatusStyle****************/
 .tinyNotice_status_warning{
     background-color: #dc9a1d;
     border-right: 8px solid #a47213;
@@ -81,7 +137,8 @@ div[class ^= tinyNotice_status_] > p{
 
 
 
-/*****************erorr****************/
+
+/*****************erorrStatusStyle****************/
 .tinyNotice_status_error{
     background-color: #cc2e35;
     border-right: 8px solid #982025;
@@ -98,7 +155,7 @@ div[class ^= tinyNotice_status_] > p{
 
 
 
-/*****************erorr****************/
+/*****************infoStatusStyle****************/
 .tinyNotice_status_info{
     background-color: #2ec8cc;
     border-right: 8px solid #209598;
@@ -111,19 +168,3 @@ div[class ^= tinyNotice_status_] > p{
 .tinyNotice_status_info > strong{color: #156280;}
 
 .tinyNotice_status_info > p{border-right: 2px solid #2bb9bd;}
-
-
-
-/*****************erorr****************/
-.tinyNotice_status_note{
-    background-color: #888888;
-    border-right: 8px solid #5c5c5c;
-    color: #fff;
-}
-.tinyNotice_status_note > span{background-color: #747474;}
-
-.tinyNotice_status_note > span:hover{background-color: #363636;}
-
-.tinyNotice_status_note > strong{color: #363636;}
-
-.tinyNotice_status_note > p{border-right: 2px solid #747474;}
