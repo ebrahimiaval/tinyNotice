@@ -2,9 +2,6 @@
 
 JQuery Notification or confirm Plugin to use fast and simple.do n't  need special config.
 
-## Getting Started
-
-
 
 ## Getting Started
 download and paste tinyNotice file in project.now,copy and past the below codes in head tag.
