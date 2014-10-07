@@ -28,7 +28,6 @@ use for fast notice.the below codes show all inline otions;
 ```
 option description :
 
---------------------------------------------------------------------------------
 "statusTitle" : title of notice / type:string / default = ""
 
 "statusText" : notice text / type:string / default = ""
@@ -37,7 +36,6 @@ option description :
 
 lifeTime : time of life (ms) / type:number / default = 4000
 
---------------------------------------------------------------------------------
 
 examples : 
 ```js
@@ -49,7 +47,7 @@ $.tinyNotice("this is a satatus text without status title" , "warning");//show t
 
 $.tinyNotice("notice title","this is a satatus text " , "warning" , 6000);//show this text with full custom config
 ```
-
+--------------------------------------------------------------------------------
 
 2)optional [json object] conifg and using
 ```html
