@@ -44,11 +44,13 @@ cancel :function(){ //run when click cancel button }
 }
 ```
  to set option.setConfirm you can use 2 options:
-```html
-boolean : when use "true" show buttons by default topics .default is "false" and buttons are hidden;
 
-array : for exampel => ["ok","no,tanks"] //change topics of accept and cancel buttons 
- ```
+boolean : when use "true" show buttons by default topics .default is "false" and buttons are hidden.
+
+array : for exampel => ["ok","no,tanks"] //change topics of accept and cancel buttons.
+
  
 3)destroy existing box
+```js
 $.tinyNotice("destroy"); //remove tinyNotice
+```
