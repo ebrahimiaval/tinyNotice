@@ -100,7 +100,7 @@ var tinyNoticeSetTimeOutVar = null;
            //cheching text to be satus
            function isStatus(param){
                switch(param){
-                   case "worning" : return true;break;
+                   case "warning" : return true;break;
                    case "success" : return true;break;
                    case "error" : return true;break;
                    case "note" : return true;break;
