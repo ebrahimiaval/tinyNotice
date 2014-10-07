@@ -1,6 +1,6 @@
 # tinyNotice
 
-JQuery Notification or confirm Plugin to use fast and simple.do n't  need special config.
+JQuery Notification or confirm Plugin to use fast and simple.do n't  need special config.to try it,run index.html in this project file.
 
 
 ## Getting Started
