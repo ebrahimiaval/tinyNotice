@@ -127,7 +127,7 @@ var tinyNoticeSetTimeOutVar = null;
                                 buttonView+'</div></div>';
                 $("body").prepend(HTMLview); 
                 
-                $("div[class ^= tinyNotice_status_]:first").show('slide',{direction:"right"},200,function(){ $(".tinyNotice_confirmBtn").slideDown(100)});
+                $("div[class ^= tinyNotice_status_]:first").show('slide',{direction:"right"},200,function(){ $(".tinyNotice_confirmBtn").slideDown(100);});
                 if(closeBtnView != ""){
                     $("div[class ^= tinyNotice_status_]:first > span").click(function (){destroy();});
                 }else{
@@ -144,7 +144,7 @@ var tinyNoticeSetTimeOutVar = null;
                 if(tinyNoticeSetTimeOutVar)
                     window.clearInterval(tinyNoticeSetTimeOutVar);
                 if(option.lifeTime)
-                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy() },option.lifeTime);
+                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },option.lifeTime);
            }
            
            //destroy 
@@ -162,7 +162,7 @@ var tinyNoticeSetTimeOutVar = null;
                             callback(option);
                         });
                     if(callback)
-                        return "rebuild"
+                        return "rebuild";
                 });   
                
                 
@@ -174,5 +174,5 @@ var tinyNoticeSetTimeOutVar = null;
             }else{
                 build(option); 
             }
-	}
+	};
 }(jQuery));
