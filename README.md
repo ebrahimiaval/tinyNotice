@@ -9,7 +9,7 @@ Congratulations,tinyNotice is ready to use.this jQuery plugin don't need to add 
 
 ```html
 <link rel="stylesheet" href="tinyNotice/FlatTheme.css">
-<script src="scripts/jquery-1.11.1.min.js"></script>//can use the jQuery CDN: "http://code.jquery.com/jquery-1.11.0.min.js" 
+<script src="scripts/jquery-1.11.1.min.js"></script>
 <script src="tinyNotice/tinyNotice.js"></script>
 ```
 
@@ -39,13 +39,17 @@ lifeTime : time of life (ms) / type:number / default = 4000
 
 examples : 
 ```js
-$.tinyNotice("this is a satatus text without status title");//show this text with default config [statusTitle:"",lifeTime:4000,status:note]
+//show this text with default config [statusTitle:"",lifeTime:4000,status:note]
+$.tinyNotice("this is a satatus text without status title");
 
-$.tinyNotice("notice title","this is a satatus text ");//show this text with default config for lifeTime and status
+//show this text with default config for lifeTime and status
+$.tinyNotice("notice title","this is a satatus text ");
 
-$.tinyNotice("this is a satatus text without status title" , "warning");//show this text in warning view
+//show this text in warning view
+$.tinyNotice("this is a satatus text without status title" , "warning");
 
-$.tinyNotice("notice title","this is a satatus text " , "warning" , 6000);//show this text with full custom config
+//show this text with full custom config
+$.tinyNotice("notice title","this is a satatus text " , "warning" , 6000);
 ```
 --------------------------------------------------------------------------------
 
@@ -107,7 +111,7 @@ destroy tinyNotice [use for unlimited lifeTime or its expiration lifeTime has no
 $.tinyNotice("destroy"); //remove tinyNotice
 ```
 ## License
-Copyright (c) 2014 Mr.sinoser [mohammad ebrahimi aval](http://sinoser.ir) 
+Copyright (c) 2014 mohammad ebrahimi aval [Mr.sinoser](http://sinoser.ir) 
 
 Licensed under the [MIT license][mit].
 [mit]: http://www.opensource.org/licenses/mit-license.php
