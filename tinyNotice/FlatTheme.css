@@ -25,14 +25,15 @@ div[class ^= tinyNotice_status_] > span{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 13px;
-    height: 13px;
+    width: 19px;
+    height: 19px;
     font-size: 13px;
     font-family: arial;
     text-align: center;
     font-weight: bold;
     padding: 3px;
     display: none;
+    box-sizing: border-box;
 }
 div[class ^= tinyNotice_status_]:hover > span{
     display: block;
