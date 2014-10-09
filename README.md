@@ -2,6 +2,7 @@
 
 JQuery Notification or confirm Plugin to use fast and simple.do n't  need special config.to try it,run index.html in this project file.
 
+![alt tag](https://github.com/sinoser/tinyNotice/screenshot.png)
 
 ## Getting Started
 download and paste tinyNotice file in project.now,copy and past the below codes in head tag.
