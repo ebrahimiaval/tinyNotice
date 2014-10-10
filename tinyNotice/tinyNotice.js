@@ -1,5 +1,5 @@
 /*
-*   About : tinyNotic 1.0.0 - theme script
+*   About : tinyNotic 1.1.0 - theme script
 *   Theme name : Flat
 *   Created and published by : Mr.sinoser [mohammad ebrahimi aval]
 *   publisher site :http://sinoser.ir
