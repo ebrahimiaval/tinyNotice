@@ -72,6 +72,7 @@ lifeTime : 4000,
 setConfirm : false,//hide buttons and show close button on top-left of box to close
 accept : function(){ //run when click accept button },
 cancel :function(){ //run when click cancel button }
+callback:function(){ //run when close or expiration lifeTime}
 }
 ```
  to set option.setConfirm you can use 2 options:
