@@ -13,28 +13,28 @@
 var tinyNoticeSetTimeOutVar = null;
 (function($){
 	$.tinyNotice = function(paramet){
-           var tnOptions = {};
+           var option = {};
            if(arguments.length == 1){//have 1 arguments
                 if($.isPlainObject(arguments[0])){//if is a object
-                        tnOptions = arguments[0];//set to extand potions
+                        option = arguments[0];//set to extand potions
                 }else if($.type(arguments[0]) == "string" && arguments[0] == "destroy"){
                     return destroy();
                 }else{//use for text
-                    tnOptions.statusText = arguments[0];
+                    option.statusText = arguments[0];
                 }
            }else if(arguments.length == 2){
                 if($.type(arguments[0]) == "string"){
                     if($.type(arguments[1]) == "string"){
                         if( isStatus(arguments[1]) ){
-                            tnOptions.statusText = arguments[0];
-                            tnOptions.status = arguments[1];
+                            option.statusText = arguments[0];
+                            option.status = arguments[1];
                         }else{
-                            tnOptions.statusTitle = arguments[0];
-                            tnOptions.statusText = arguments[1];
+                            option.statusTitle = arguments[0];
+                            option.statusText = arguments[1];
                         }
                     }else if( $.type(arguments[1])=="number" ){
-                            tnOptions.statusText = arguments[0];
-                            tnOptions.lifeTime = arguments[1];
+                            option.statusText = arguments[0];
+                            option.lifeTime = arguments[1];
                     }else{
                         return isInvalid(0);//stop running
                     }
@@ -45,22 +45,22 @@ var tinyNoticeSetTimeOutVar = null;
                if($.type(arguments[0]) == "string"){
                     if($.type(arguments[1]) == "string"){
                         if( isStatus(arguments[1]) ){
-                            tnOptions.statusText = arguments[0];
-                            tnOptions.status = arguments[1];
+                            option.statusText = arguments[0];
+                            option.status = arguments[1];
                         }else{//isStatus($.type(arguments[1]) == false
-                            tnOptions.statusTitle = arguments[0];
-                            tnOptions.statusText = arguments[1];
+                            option.statusTitle = arguments[0];
+                            option.statusText = arguments[1];
                         }
                     }else{//$.type(arguments[1])!="string"
                         return isInvalid(2);//stop running
                     }
    
                     if( $.type(arguments[2])=="number" ){
-                            tnOptions.lifeTime = arguments[2];
+                            option.lifeTime = arguments[2];
                     }else if( isStatus(arguments[2]) ){
-                            tnOptions.status = arguments[2];
+                            option.status = arguments[2];
                     }else{
-                        console.log(tnOptions);
+                        console.log(option);
                         return isInvalid(3);//stop running
                     }
                 }else{//$.type(arguments[0])!="string"
@@ -68,34 +68,35 @@ var tinyNoticeSetTimeOutVar = null;
                 }              
            }else if(arguments.length == 4){
                 if($.type(arguments[0]) == "string" && $.type(arguments[1]) == "string"){
-                    tnOptions.statusTitle = arguments[0];
-                    tnOptions.statusText = arguments[1];
+                    option.statusTitle = arguments[0];
+                    option.statusText = arguments[1];
                 }else{
                     return isInvalid(5);//stop running
                 }
                 if( isStatus(arguments[2]) )
-                    tnOptions.status = arguments[2];
+                    option.status = arguments[2];
                 else
                     return isInvalid(5);//stop running
                 
                 if( $.type(arguments[3])=="number" )
-                    tnOptions.lifeTime = arguments[3]; 
+                    option.lifeTime = arguments[3]; 
                 else
                     return isInvalid(7);//stop running
            }else{//have 0 argument
                return isInvalid(8);//stop running
            }
            
-           //extend tnOptionss
-            tnOptions = $.extend({
+           //extend options
+            option = $.extend({
                 statusTitle : "",
                 statusText : "",
                 status : "note",
                 lifeTime : 4000,
                 setConfirm : false,
                 accept : function(){},
-                cancel :function(){}
-            }, tnOptions || {});
+                cancel :function(){},
+                callback : function(){},
+            }, option || {});
            
             
                       
@@ -118,18 +119,18 @@ var tinyNoticeSetTimeOutVar = null;
            }
            
             //build
-           function build(tnOptions){
-                var className = 'tinyNotice_status_'+tnOptions.status;
+           function build(){
+                var className = 'tinyNotice_status_'+option.status;
                 var buttonView = "";
                 var closeBtnView = "<span>X</span>";
                 
-                if(tnOptions.setConfirm){
+                if(option.setConfirm){
                     var okBtnTopic = 'تایید';
                     var cancelBtnTopic = 'رد';
                     
-                    if($.isArray(tnOptions.setConfirm)){
-                        okBtnTopic = tnOptions.setConfirm[0];
-                        cancelBtnTopic = tnOptions.setConfirm[1];
+                    if($.isArray(option.setConfirm)){
+                        okBtnTopic = option.setConfirm[0];
+                        cancelBtnTopic = option.setConfirm[1];
                     }  
                     
                     buttonView = '<div class="tinyNotice_confirmBtn"><button class="tinyNotice_confirmBtn_ok">'+
@@ -137,45 +138,42 @@ var tinyNoticeSetTimeOutVar = null;
                                  cancelBtnTopic+'</button></div>';
                         
                     closeBtnView = "";
-                    tnOptions.lifeTime = 0;
+                    option.lifeTime = 0;
                 }
                 
                 var HTMLview = '<div class="'+
                                 className+'">'+
                                 closeBtnView+'<strong>'+
-                                tnOptions.statusTitle+'</strong><p>'+
-                                tnOptions.statusText+'</p>'+
+                                option.statusTitle+'</strong><p>'+
+                                option.statusText+'</p>'+
                                 buttonView+'</div>';
                 $("body").prepend(HTMLview); 
                 
                $("div[class ^= tinyNotice_status_]:first").show('pulsate',200); 
                
-               if(closeBtnView != ""){
+               if(closeBtnView != ""){//is not confirm mode
                     $("div[class ^= tinyNotice_status_]:first > span").click(function (){destroy();});
                 }else{
                     $("button.tinyNotice_confirmBtn_ok").click(function(){
-                            tnOptions.accept();
+                            option.accept();
                             destroy();
                     });
                     $("button.tinyNotice_confirmBtn_cancel").click(function(){
-                            tnOptions.cancel();
+                            option.cancel();
                             destroy();
                     });
                 }
                 
                 if(tinyNoticeSetTimeOutVar)
                     window.clearInterval(tinyNoticeSetTimeOutVar);
-                if(tnOptions.lifeTime)
-                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },tnOptions.lifeTime);
+                if(option.lifeTime)
+                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },option.lifeTime);
                 
                 return "rebuild";
            }
            
            //destroy 
-           function destroy(callback,tnOptions){
-                if(!callback)
-                    callback = function(){};
-                
+           function destroy(destroyCallback){               
                 $("div[class ^= tinyNotice_status_]:first > *")
                     .stop()
                     .clearQueue()
@@ -185,19 +183,23 @@ var tinyNoticeSetTimeOutVar = null;
                         .clearQueue()
                         .hide('slide',{direction:"right"},100,function(){
                             $("div[class ^= tinyNotice_status_]").remove();
-                            callback(tnOptions);
+                            if($.isFunction(destroyCallback))
+                                destroyCallback();
+                            else
+                                option.callback();
                         });
                     });
                 
-                if(!tnOptions)
+                
+                if(!$.isFunction(destroyCallback))
                     return "destory";
            } 
            
            //running
             if($("div[class ^= tinyNotice_status_]").is(":visible")){
-                destroy(build,tnOptions);
+                destroy(build);
             }else{
-                build(tnOptions); 
+                build(option); 
             }
 	};
 }(jQuery));
