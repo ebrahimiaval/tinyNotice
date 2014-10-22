@@ -11,6 +11,7 @@
 
 //Mr.sinoser plugin
 var tinyNoticeSetTimeOutVar = null;
+window.tinyNoticeOption = {};
 (function($){
 	$.tinyNotice = function(paramet){
            var option = {};
@@ -87,7 +88,7 @@ var tinyNoticeSetTimeOutVar = null;
            }
            
            //extend options
-            option = $.extend({
+            tinyNoticeOption = $.extend({
                 statusTitle : "",
                 statusText : "",
                 status : "note",
@@ -120,17 +121,17 @@ var tinyNoticeSetTimeOutVar = null;
            
             //build
            function build(){
-                var className = 'tinyNotice_status_'+option.status;
+                var className = 'tinyNotice_status_'+tinyNoticeOption.status;
                 var buttonView = "";
                 var closeBtnView = "<span>X</span>";
                 
-                if(option.setConfirm){
+                if(tinyNoticeOption.setConfirm){
                     var okBtnTopic = 'تایید';
                     var cancelBtnTopic = 'رد';
                     
-                    if($.isArray(option.setConfirm)){
-                        okBtnTopic = option.setConfirm[0];
-                        cancelBtnTopic = option.setConfirm[1];
+                    if($.isArray(tinyNoticeOption.setConfirm)){
+                        okBtnTopic = tinyNoticeOption.setConfirm[0];
+                        cancelBtnTopic = tinyNoticeOption.setConfirm[1];
                     }  
                     
                     buttonView = '<div class="tinyNotice_confirmBtn"><button class="tinyNotice_confirmBtn_ok">'+
@@ -138,14 +139,14 @@ var tinyNoticeSetTimeOutVar = null;
                                  cancelBtnTopic+'</button></div>';
                         
                     closeBtnView = "";
-                    option.lifeTime = 0;
+                    tinyNoticeOption.lifeTime = 0;
                 }
                 
                 var HTMLview = '<div class="'+
                                 className+'">'+
                                 closeBtnView+'<strong>'+
-                                option.statusTitle+'</strong><p>'+
-                                option.statusText+'</p>'+
+                                tinyNoticeOption.statusTitle+'</strong><p>'+
+                                tinyNoticeOption.statusText+'</p>'+
                                 buttonView+'</div>';
                 $("body").prepend(HTMLview); 
                 
@@ -155,19 +156,19 @@ var tinyNoticeSetTimeOutVar = null;
                     $("div[class ^= tinyNotice_status_]:first > span").click(function (){destroy();});
                 }else{
                     $("button.tinyNotice_confirmBtn_ok").click(function(){
-                            option.accept();
+                            tinyNoticeOption.accept();
                             destroy();
                     });
                     $("button.tinyNotice_confirmBtn_cancel").click(function(){
-                            option.cancel();
+                            tinyNoticeOption.cancel();
                             destroy();
                     });
                 }
                 
                 if(tinyNoticeSetTimeOutVar)
                     window.clearInterval(tinyNoticeSetTimeOutVar);
-                if(option.lifeTime)
-                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },option.lifeTime);
+                if(tinyNoticeOption.lifeTime)
+                    tinyNoticeSetTimeOutVar = window.setTimeout(function(){ destroy(); },tinyNoticeOption.lifeTime);
                 
                 return "rebuild";
            }
@@ -186,7 +187,7 @@ var tinyNoticeSetTimeOutVar = null;
                             if($.isFunction(destroyCallback))
                                 destroyCallback();
                             else
-                                option.callback();
+                                tinyNoticeOption.callback();
                         });
                     });
                 
@@ -199,7 +200,7 @@ var tinyNoticeSetTimeOutVar = null;
             if($("div[class ^= tinyNotice_status_]").is(":visible")){
                 destroy(build);
             }else{
-                build(option); 
+                build(); 
             }
 	};
 }(jQuery));
