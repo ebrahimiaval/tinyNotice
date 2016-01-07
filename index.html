@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tinynotice by ebrahimiaval</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Tinynotice</h1>
+      <h2 class="project-tagline">JQuery Notification Plugin  for alert and confirm like Java Script alert() and confirm()</h2>
+      <a href="https://github.com/ebrahimiaval/tinyNotice" class="btn">View on GitHub</a>
+      <a href="https://github.com/ebrahimiaval/tinyNotice/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ebrahimiaval/tinyNotice/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="tinynotice" class="anchor" href="#tinynotice" aria-hidden="true"><span class="octicon octicon-link"></span></a>tinyNotice</h1>
+
+<p>tinyNotice V2.0.0 : use SCSS to create theme and change all structures and fix bugs.</p>
+
+<p>JQuery Notification or confirm Plugin to use fast and simple.don't need special config.to try it,run index.html in this project file.</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>tinyNotice/tinyNotice-theme.css<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>jquery-1.11.3.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>tinyNotice/tinyNotice.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>can config tinyNotice with inline option or object option for alert mod and for config confirm mod use object option.</p>
+
+<h3>
+<a id="1inline-option" class="anchor" href="#1inline-option" aria-hidden="true"><span class="octicon octicon-link"></span></a>1)inline option</h3>
+
+<p>"statusTitle" : title of notice / type is string / default = ""</p>
+
+<p>"statusText" : notice text / type is string / default = ""</p>
+
+<p>"status" : note || warning || success || error || info / type is string / default = "note"</p>
+
+<p>lifeTime : time per ms / type is number / default = 4000</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span> () {</span>
+<span class="pl-s1">        <span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>( [<span class="pl-s"><span class="pl-pds">"</span>statusTitle<span class="pl-pds">"</span></span>] ,<span class="pl-s"><span class="pl-pds">"</span>statusText<span class="pl-pds">"</span></span>,[<span class="pl-s"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>],[lifeTime]);</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<p>examples :</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(<span class="pl-s"><span class="pl-pds">"</span>this is a satatus text without status title<span class="pl-pds">"</span></span>);</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(<span class="pl-s"><span class="pl-pds">"</span>notice title<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>this is a satatus text <span class="pl-pds">"</span></span>);</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(<span class="pl-s"><span class="pl-pds">"</span>this is a satatus text without status title<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>warning<span class="pl-pds">"</span></span>);</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(<span class="pl-s"><span class="pl-pds">"</span>notice title<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>this is a satatus text <span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>warning<span class="pl-pds">"</span></span> , <span class="pl-c1">6000</span>);</pre></div>
+
+<hr>
+
+<h3>
+<a id="2object-option" class="anchor" href="#2object-option" aria-hidden="true"><span class="octicon octicon-link"></span></a>2)object option</h3>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span> () {</span>
+<span class="pl-s1">        <span class="pl-c">//default options</span></span>
+<span class="pl-s1">        <span class="pl-k">var</span> option <span class="pl-k">=</span> {</span>
+<span class="pl-s1">                     statusTitle <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">                     statusText <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">                     status <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>note<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">                     lifeTime <span class="pl-k">:</span> <span class="pl-c1">4000</span>,</span>
+<span class="pl-s1">                     setConfirm <span class="pl-k">:</span> <span class="pl-c1">false</span>,</span>
+<span class="pl-s1">                     <span class="pl-en">accept</span> <span class="pl-k">:</span> <span class="pl-k">function</span>(){ <span class="pl-c">//run when click accept button },</span></span>
+<span class="pl-s1">                     <span class="pl-en">cancel</span> <span class="pl-k">:</span><span class="pl-k">function</span>(){  <span class="pl-c">//run when click cancel button }</span></span>
+<span class="pl-s1">                     <span class="pl-en">callback</span><span class="pl-k">:</span><span class="pl-k">function</span>(){ <span class="pl-c">//run when close or expiration lifeTime}</span></span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">        <span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(options);</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h4>
+<a id="2-1confirm-mod" class="anchor" href="#2-1confirm-mod" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1)confirm mod</h4>
+
+<p>if set option.setConfirm true or "en" or "fa" or {ok:"..." , cancel:".."} tinyNotice swith to confrim mod.</p>
+
+<p>examples :</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//default english button title</span>
+ <span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+            setConfirm<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>fa<span class="pl-pds">"</span></span>,
+            statusTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>عنوان<span class="pl-pds">"</span></span>,
+            statusText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>داده های جدید ثبت شوند ؟<span class="pl-pds">"</span></span>
+        });</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//default persian button title</span>
+ <span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+            setConfirm<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>fa<span class="pl-pds">"</span></span>,
+            statusTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>عنوان<span class="pl-pds">"</span></span>,
+            statusText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>داده های جدید ثبت شوند ؟<span class="pl-pds">"</span></span>
+        });</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//custom button title</span>
+<span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+            setConfirm<span class="pl-k">:</span> {ok<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>ok,i'm ready<span class="pl-pds">"</span></span>, cancel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>no,tanks<span class="pl-pds">"</span></span>},
+            statusTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Confirm mod<span class="pl-pds">"</span></span>,
+            statusText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>custom button topic!<span class="pl-pds">"</span></span>
+        });</pre></div>
+
+<h4>
+<a id="2-1-1confirm-event" class="anchor" href="#2-1-1confirm-event" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-1-1)confirm event</h4>
+
+<p>examples :</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//default english button title</span>
+<span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+    statusTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Confirm mod<span class="pl-pds">"</span></span>,
+    statusText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>default button topic!<span class="pl-pds">"</span></span>,
+    setConfirm<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>,
+    <span class="pl-en">accept</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {
+        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>ok<span class="pl-pds">"</span></span>);
+    },
+    <span class="pl-en">cancel</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {
+        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>cancel<span class="pl-pds">"</span></span>);
+    }
+});
+</pre></div>
+
+<h4>
+<a id="2-2status" class="anchor" href="#2-2status" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-2)status</h4>
+
+<p>examples : </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+                status <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>info<span class="pl-pds">"</span></span>, <span class="pl-c">// note , warning , success , error , info</span>
+                statusTitle <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>info<span class="pl-pds">"</span></span>,
+                statusText <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>this is a info message!<span class="pl-pds">"</span></span>
+              });</pre></div>
+
+<h4>
+<a id="2-3callback" class="anchor" href="#2-3callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>2-3)callback</h4>
+
+<p>examples :</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//custom button title</span>
+<span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>({
+            <span class="pl-en">callback</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {
+                <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>closed!<span class="pl-pds">"</span></span>);
+            }
+            statusTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Confirm mod<span class="pl-pds">"</span></span>,
+            statusText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>custom button topic!<span class="pl-pds">"</span></span>
+        });</pre></div>
+
+<h2>
+<a id="close-event" class="anchor" href="#close-event" aria-hidden="true"><span class="octicon octicon-link"></span></a>close [event]</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">$</span>.<span class="pl-en">tinyNotice</span>(<span class="pl-s"><span class="pl-pds">"</span>close<span class="pl-pds">"</span></span>);</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2014 mohammad ebrahimi aval (<a href="http://ebrahimiaval.ir">http://ebrahimiaval.ir</a>)</p>
+
+<p>Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ebrahimiaval/tinyNotice">Tinynotice</a> is maintained by <a href="https://github.com/ebrahimiaval">ebrahimiaval</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
