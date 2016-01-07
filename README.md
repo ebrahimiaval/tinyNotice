@@ -1,24 +1,31 @@
 # tinyNotice
+tinyNotice V2.0.0 : use SCSS to create theme and change all structures and fix bugs.
 
-JQuery Notification or confirm Plugin to use fast and simple.do n't  need special config.to try it,run index.html in this project file.
+JQuery Notification or confirm Plugin to use fast and simple.don't need special config.to try it,run index.html in this project file.
 
-![tinyNotice jQuery plugin -  Mr.sinoser](https://raw.githubusercontent.com/ebrahimiaval/tinyNotice/master/screenshot.png)
 
 ## Getting Started
-download and paste tinyNotice file in project.now,copy and past the below codes in head tag.
-Congratulations,tinyNotice is ready to use.this jQuery plugin don't need to add html or css code or other option to launch.
 
 ```html
-<link rel="stylesheet" href="tinyNotice/FlatTheme.css">
-<script src="scripts/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="tinyNotice/tinyNotice-theme.css">
+<script src="jquery-1.11.3.min.js"></script>
 <script src="tinyNotice/tinyNotice.js"></script>
 ```
 
 
-## Usage
+## Usage ##
+can config tinyNotice with inline option or object option for alert mod and for config confirm mod use object option.
 
-1)inline conifg and using
-use for fast notice.the below codes show all inline otions;
+
+### 1)inline option ###
+
+"statusTitle" : title of notice / type is string / default = ""
+
+"statusText" : notice text / type is string / default = ""
+
+"status" : note || warning || success || error || info / type is string / default = "note"
+
+lifeTime : time per ms / type is number / default = 4000
 
 ```html
 <script>
@@ -27,93 +34,121 @@ use for fast notice.the below codes show all inline otions;
 	});
 </script>
 ```
-option description :
 
-"statusTitle" : title of notice / type:string / default = ""
-
-"statusText" : notice text / type:string / default = ""
-
-"status" : use One of status [note,warning,success,error,info] / type:string / default = "note"
-
-lifeTime : time of life (ms) / type:number / default = 4000
-
-
-examples : 
+examples :
 ```js
-//show this text with default config [statusTitle:"",lifeTime:4000,status:note]
 $.tinyNotice("this is a satatus text without status title");
-
-//show this text with default config for lifeTime and status
+```
+```js
 $.tinyNotice("notice title","this is a satatus text ");
-
-//show this text in warning view
+```
+```js
 $.tinyNotice("this is a satatus text without status title" , "warning");
-
-//show this text with full custom config
+```
+```js
 $.tinyNotice("notice title","this is a satatus text " , "warning" , 6000);
 ```
 --------------------------------------------------------------------------------
 
-2)optional [json object] conifg and using
+### 2)object option ###
+
 ```html
 <script>
 	$(function () {
-		$.tinyNotice({options}); 
+	    //default options
+	    var option = {
+                     statusTitle : "",
+                     statusText : "",
+                     status : "note",
+                     lifeTime : 4000,
+                     setConfirm : false,
+                     accept : function(){ //run when click accept button },
+                     cancel :function(){  //run when click cancel button }
+                     callback:function(){ //run when close or expiration lifeTime}
+                    }
+		$.tinyNotice(options);
 	});
 </script>
 ```
-default options is :
+
+#### 2-1)confirm mod ####
+ if set option.setConfirm true or "en" or "fa" or {ok:"..." , cancel:".."} tinyNotice swith to confrim mod.
+
+examples :
 ```js
-{
-statusTitle : "",
-statusText : "",
-status : "note",
-lifeTime : 4000,
-setConfirm : false,//hide buttons and show close button on top-left of box to close
-accept : function(){ //run when click accept button },
-cancel :function(){ //run when click cancel button }
-callback:function(){ //run when close or expiration lifeTime}
-}
+//default english button title
+ $.tinyNotice({
+            setConfirm: "fa",
+            statusTitle: "عنوان",
+            statusText: "داده های جدید ثبت شوند ؟"
+        });
 ```
- to set option.setConfirm you can use 2 options:
+```js
+//default persian button title
+ $.tinyNotice({
+            setConfirm: "fa",
+            statusTitle: "عنوان",
+            statusText: "داده های جدید ثبت شوند ؟"
+        });
+```
+```js
+//custom button title
+$.tinyNotice({
+            setConfirm: {ok: "ok,i'm ready", cancel: "no,tanks"},
+            statusTitle: "Confirm mod",
+            statusText: "custom button topic!"
+        });
+```
 
-boolean : when use "true" show buttons by default topics .default is "false" and buttons are hidden.
+#### 2-1-1)confirm event ####
+examples :
+```js
+//default english button title
+$.tinyNotice({
+    statusTitle: "Confirm mod",
+    statusText: "default button topic!",
+    setConfirm: "en",
+    accept: function () {
+        alert("ok");
+    },
+    cancel: function () {
+        alert("cancel");
+    }
+});
 
-array : for exampel => ["ok","no,tanks"] //change topics of accept and cancel buttons.
+```
 
+
+#### 2-2)status ####
 examples : 
 ```js
-//show info custom text in info view
 $.tinyNotice({
-          	status : "info",
+          	    status : "info", // note , warning , success , error , info
                 statusTitle : "info",
                 statusText : "this is a info message!"
               });
-              
-              
-//set a confirm. note : lifeTime don't use in confirm mod (close box button is hidden too)
-$.tinyNotice({
-          	setConfirm:["ok,i'm ready","no,tanks"], //to use default botton topic writing true 
-                statusTitle : "Confirm mod",
-                statusText : "custom button topic!"
-                accept: function(){
-			alert("ok");//run when user click on "ok,i'm ready" button
-                },
-                cancel: function(){
-                        alert("cancel");//run when user click on "no,tanks" button
-                }
-              });
-              
 ```
 
- 
-## destroy
-destroy tinyNotice [use for unlimited lifeTime or its expiration lifeTime has not yet].
+#### 2-3)callback ####
+examples :
 ```js
-$.tinyNotice("destroy"); //remove tinyNotice
+//custom button title
+$.tinyNotice({
+            callback: function () {
+                alert("closed!");
+            }
+            statusTitle: "Confirm mod",
+            statusText: "custom button topic!"
+        });
 ```
-## License
-Copyright (c) 2014 mohammad ebrahimi aval [Mr.sinoser](http://sinoser.ir) 
+
+## close [event] ##
+```js
+$.tinyNotice("close");
+```
+
+## License ##
+Copyright (c) 2014 mohammad ebrahimi aval (http://ebrahimiaval.ir)
 
 Licensed under the [MIT license][mit].
 [mit]: http://www.opensource.org/licenses/mit-license.php
