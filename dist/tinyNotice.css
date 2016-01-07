@@ -1,0 +1,132 @@
+/*
+*   About : tinyNotic 2.0.0
+*   Created and published by : mohammad ebrahimi aval
+*   publisher site :http://ebrahimiaval.ir
+*/
+.tinyNoticeWrap {
+  position: fixed;
+  z-index: 900000000;
+  top: 12px;
+  right: 0px;
+  direction: rtl;
+  max-width: 400px;
+  min-width: 100px;
+  font-size: 18px;
+  font-family: tahoma;
+  display: none;
+  overflow: hidden;
+  padding: 10px 15px; }
+  .tinyNoticeWrap > span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 19px;
+    height: 19px;
+    font-size: 13px;
+    font-family: arial;
+    text-align: center;
+    font-weight: bold;
+    padding: 3px;
+    display: none;
+    box-sizing: border-box; }
+  .tinyNoticeWrap:hover > span {
+    display: block;
+    cursor: pointer; }
+  .tinyNoticeWrap > p {
+    font-size: 0.8em;
+    margin: 5px 0px 0px 0px;
+    padding: 0px 5px 0px 0px; }
+  .tinyNoticeWrap button {
+    box-sizing: border-box;
+    height: 28px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 0 15px;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-size: 14px;
+    font-family: tahoma;
+    border: 2px solid transparent;
+    outline: none; }
+  .tinyNoticeWrap [data-action=confirm] {
+    background-color: #198fff;
+    -webkit-box-shadow: 0 3px #063a93;
+    box-shadow: 0 3px #063a93; }
+    .tinyNoticeWrap [data-action=confirm]:hover {
+      background-color: #0071D7;
+      -webkit-box-shadow: 0 3px #042966;
+      box-shadow: 0 3px #042966; }
+  .tinyNoticeWrap [data-action=cancel] {
+    background-color: #df5157;
+    -webkit-box-shadow: 0 3px #992025;
+    box-shadow: 0 3px #992025; }
+    .tinyNoticeWrap [data-action=cancel]:hover {
+      background-color: #c02930;
+      -webkit-box-shadow: 0 3px #6e0c10;
+      box-shadow: 0 3px #6e0c10; }
+  .tinyNoticeWrap.note {
+    background-color: #bbb;
+    border-right: 8px solid #777;
+    color: #fff; }
+    .tinyNoticeWrap.note > span {
+      background-color: #747474; }
+    .tinyNoticeWrap.note > span:hover {
+      background-color: #363636; }
+    .tinyNoticeWrap.note > strong {
+      color: #363636; }
+    .tinyNoticeWrap.note > p {
+      border-right: 2px solid #747474; }
+  .tinyNoticeWrap.success {
+    background-color: #2ecc71;
+    border-right: 8px solid #209853;
+    color: #fff; }
+    .tinyNoticeWrap.success > span {
+      background-color: #2bbd69; }
+    .tinyNoticeWrap.success > span:hover {
+      background-color: #15723d; }
+    .tinyNoticeWrap.success > strong {
+      color: #15723d; }
+    .tinyNoticeWrap.success > p {
+      border-right: 2px solid #2bbd69; }
+  .tinyNoticeWrap.warning {
+    background-color: #dc9a1d;
+    border-right: 8px solid #a47213;
+    color: #fff; }
+    .tinyNoticeWrap.warning > span {
+      background-color: #cc8f1b; }
+    .tinyNoticeWrap.warning > span:hover {
+      background-color: #7c560b; }
+    .tinyNoticeWrap.warning > strong {
+      color: #7c560b; }
+    .tinyNoticeWrap.warning > p {
+      border-right: 2px solid #cc8f1b; }
+  .tinyNoticeWrap.error {
+    background-color: #cc2e35;
+    border-right: 8px solid #982025;
+    color: #fff; }
+    .tinyNoticeWrap.error > span {
+      background-color: #bd2b31; }
+    .tinyNoticeWrap.error > span:hover {
+      background-color: #721518; }
+    .tinyNoticeWrap.error > strong {
+      color: #721518; }
+    .tinyNoticeWrap.error > p {
+      border-right: 2px solid #bd2b31; }
+  .tinyNoticeWrap.info {
+    background-color: #2ec8cc;
+    border-right: 8px solid #209598;
+    color: #fff; }
+    .tinyNoticeWrap.info > span {
+      background-color: #2bb9bd; }
+    .tinyNoticeWrap.info > span:hover {
+      background-color: #156280; }
+    .tinyNoticeWrap.info > strong {
+      color: #156280; }
+    .tinyNoticeWrap.info > p {
+      border-right: 2px solid #2bb9bd; }
+
+/*# sourceMappingURL=tinyNotice.css.map */

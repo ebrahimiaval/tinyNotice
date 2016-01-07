@@ -1,0 +1,202 @@
+/*
+*   About : tinyNotic 2.0.0
+*   Created and published by : mohammad ebrahimi aval
+*   publisher site :http://ebrahimiaval.ir
+*/
+
+.tinyNoticeWrap {
+  position: fixed;
+  z-index: 900000000;
+  top: 12px;
+  right: 0px;
+  direction: rtl;
+  max-width: 400px;
+  min-width: 100px;
+  font-size: 18px;
+  font-family: tahoma;
+  display: none;
+  overflow: hidden;
+  padding: 10px 15px;
+
+  > span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 19px;
+    height: 19px;
+    font-size: 13px;
+    font-family: arial;
+    text-align: center;
+    font-weight: bold;
+    padding: 3px;
+    display: none;
+    box-sizing: border-box;
+  }
+  &:hover > span {
+    display: block;
+    cursor: pointer;
+  }
+  > p {
+    font-size: 0.8em;
+    margin: 5px 0px 0px 0px;
+    padding:0px 5px 0px 0px;
+  }
+
+  button {
+    box-sizing: border-box;
+    height: 28px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 0 15px;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-size: 14px;
+    font-family: tahoma;
+    border: 2px solid transparent;
+    outline: none;
+  }
+
+  //###
+  [data-action=confirm] {
+    background-color: #198fff;
+    -webkit-box-shadow: 0 3px #063a93;
+    box-shadow: 0 3px #063a93;
+
+    &:hover {
+      background-color: #0071D7;
+      -webkit-box-shadow: 0 3px #042966;
+      box-shadow: 0 3px #042966;
+    }
+  }
+  [data-action=cancel] {
+    background-color: #df5157;
+    -webkit-box-shadow: 0 3px #992025;
+    box-shadow: 0 3px #992025;
+
+    &:hover {
+      background-color: #c02930;
+      -webkit-box-shadow: 0 3px #6e0c10;
+      box-shadow: 0 3px #6e0c10;
+    }
+  }
+
+  //################################## [default] {status : "note"}
+  &.note {
+    background-color: #bbb;
+    border-right: 8px solid #777;
+    color: #fff;
+
+    > span {
+      background-color: #747474;
+    }
+
+    > span:hover {
+      background-color: #363636;
+    }
+
+    > strong {
+      color: #363636;
+    }
+
+    > p {
+      border-right: 2px solid #747474;
+    }
+  }
+
+  //################################## {status : "success"}
+  &.success {
+    background-color: #2ecc71;
+    border-right: 8px solid #209853;
+    color: #fff;
+
+    > span {
+      background-color: #2bbd69;
+    }
+
+    > span:hover {
+      background-color: #15723d;
+    }
+
+    > strong {
+      color: #15723d;
+    }
+
+    > p {
+      border-right: 2px solid #2bbd69;
+    }
+  }
+
+  //################################## {status : "warning"}
+  &.warning {
+    background-color: #dc9a1d;
+    border-right: 8px solid #a47213;
+    color: #fff;
+
+    > span {
+      background-color: #cc8f1b;
+    }
+
+    > span:hover {
+      background-color: #7c560b;
+    }
+
+    > strong {
+      color: #7c560b;
+    }
+
+    > p {
+      border-right: 2px solid #cc8f1b;
+    }
+  }
+
+  //################################## {status : "error"}
+  &.error {
+    background-color: #cc2e35;
+    border-right: 8px solid #982025;
+    color: #fff;
+
+    > span {
+      background-color: #bd2b31;
+    }
+
+    > span:hover {
+      background-color: #721518;
+    }
+
+    > strong {
+      color: #721518;
+    }
+
+    > p {
+      border-right: 2px solid #bd2b31;
+    }
+  }
+
+  //################################## {status : "info"}
+  &.info {
+    background-color: #2ec8cc;
+    border-right: 8px solid #209598;
+    color: #fff;
+
+    > span {
+      background-color: #2bb9bd;
+    }
+
+    > span:hover {
+      background-color: #156280;
+    }
+
+    > strong {
+      color: #156280;
+    }
+
+    > p {
+      border-right: 2px solid #2bb9bd;
+    }
+  }
+
+}

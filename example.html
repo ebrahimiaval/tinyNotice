@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- , user-scalable=no -->
+    <link rel="stylesheet" href="dist/tinyNotice.css">
+    <style>
+        body {
+            font-family: tahoma;
+        }
+
+        small {
+            color: darkorange;
+        }
+
+        button {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<!--
+    <div class="tinyNoticeWrap">
+        <span>X</span>
+        <strong>status Title</strong>
+        <p>
+            status Text
+        </p>
+            <button data-action="confirm">ok</button>
+            <button data-action="cancel">cancel</button>
+
+    </div>
+-->
+
+<h1>OPTIONS</h1>
+<!-- --------------------------------------------- -->
+<h3>statusTitle : "status title"</h3>
+
+<h3>statusText : "status sub text"</h3>
+
+default tinyNotice statusTitle and statusText
+<small>[default] {statusTitle:"",statusText:""}</small>
+<button id="btn2" type="button">try it!</button>
+<br><br>
+
+only statusTitle
+<small>{statusTitle:"your title"}</small>
+<button id="btn3" type="button">try it!</button>
+<br><br>
+
+only statusText
+<small>{statusText:"your notice text"}</small>
+<button id="btn4" type="button">try it!</button>
+<br><br>
+
+define statusTitle and statusText
+<small>{statusTitle:"your title" , statusText:"your notice text"}</small>
+<button id="btn5" type="button">try it!</button>
+
+
+<br><br><br><br><!-- --------------------------------------------- -->
+<h3>status : "note || success || warning || error || info"</h3>
+
+tinyNotice success status
+<small>[default] {status : "note"}</small>
+<button id="btn6" type="button">try it!</button>
+<br><br>
+
+tinyNotice success status
+<small>{status : "success"}</small>
+<button id="btn7" type="button">try it!</button>
+<br><br>
+
+tinyNotice warning status
+<small>{status : "warning"}</small>
+<button id="btn8" type="button">try it!</button>
+<br><br>
+
+tinyNotice error status
+<small>{status : "error"}</small>
+<button id="btn9" type="button">try it!</button>
+<br><br>
+
+tinyNotice info status
+<small>{status : "info"}</small>
+<button id="btn10" type="button">try it!</button>
+
+
+<br><br><br><br><!-- --------------------------------------------- -->
+<h3>lifeTime : 0 || (number per ms)</h3>
+
+<h3>close [event]</h3>
+
+tinyNotice with default lifeTime
+<small>[default] {lifeTime : 1000}</small>
+<button id="btn11" type="button">try it!</button>
+<br><br>
+
+tinyNotice with 1 second lifeTime
+<small>{lifeTime : 1000}</small>
+<button id="btn12" type="button">try it!</button>
+<br><br>
+
+tinyNotice with unlimited lifeTime
+<small>{lifeTime : 0}</small>
+<button id="btn13" type="button">try it!</button>
+<br><br>
+
+close tinyNotice
+<small>$.tinyNotice("close")</small>
+<button id="btn14" type="button">try it!</button>
+
+
+<br><br><br><br><!-- --------------------------------------------- -->
+<h3>{setConfirm: true || "en" || "fa" || {ok:"..",cancel:".."} }</h3>
+with default persian button title
+<small>{setConfirm:"fa"}</small>
+<button id="btn15" type="button">try it!</button>
+<br><br>
+with default English button title
+<small>{setConfirm:true} OR {setConfirm:"en"}</small>
+<button id="btn16" type="button">try it!</button>
+<br><br>
+show confirm button with custom topics
+<small>{setConfirm:{ok:"ok,i'm ready",cancel:"no,tanks"}}</small>
+<button id="btn17" type="button">try it!</button>
+<br><br>
+seted callback functions
+<small>{ accept:function(){alert("ok");} , cancel:function(){alert("cancel");} }</small>
+<button id="btn18" type="button">try it!</button>
+
+<br><br><br><br><!-- --------------------------------------------- -->
+
+<!-- scripts -->
+<script src="lib/jquery-1.11.3.min.js"></script>
+<script src="dist/tinyNotice.js"></script>
+<script>
+
+    $("#btn2").click(function () {
+        $.tinyNotice({});
+    });
+    $("#btn3").click(function () {
+        $.tinyNotice({statusTitle: "your title"});
+    });
+    $("#btn4").click(function () {
+        $.tinyNotice({statusText: "your notice text"});
+    });
+    $("#btn5").click(function () {
+        $.tinyNotice({
+            statusTitle: "your title",
+            statusText: "your notice text"
+        });
+    });
+
+    $("#btn6").click(function () {
+        $.tinyNotice({
+            statusTitle: "note",
+            statusText: "this is a note message!"
+        });
+    });
+
+    $("#btn7").click(function () {
+        $.tinyNotice({
+            status: "success",
+            statusTitle: "success",
+            statusText: "this is a success message!"
+        });
+    });
+    $("#btn8").click(function () {
+        $.tinyNotice({
+            status: "warning",
+            statusTitle: "warning",
+            statusText: "this is a warning message!"
+        });
+    });
+    $("#btn9").click(function () {
+        $.tinyNotice({
+            status: "error",
+            statusTitle: "error",
+            statusText: "this is a error message!"
+        });
+    });
+    $("#btn10").click(function () {
+        $.tinyNotice({
+            status: "info",
+            statusTitle: "info",
+            statusText: "this is a info message!"
+        });
+    });
+    $("#btn11").click(function () {
+        $.tinyNotice({
+            statusTitle: "lifeTime",
+            statusText: "default life time!"
+        });
+    });
+    $("#btn12").click(function () {
+        $.tinyNotice({
+            lifeTime: 1000,
+            statusTitle: "lifeTime",
+            statusText: "1 second life time!"
+        });
+    });
+    $("#btn13").click(function () {
+        $.tinyNotice({
+            lifeTime: 0,
+            statusTitle: "lifeTime",
+            statusText: "unlimited life time!"
+        });
+    });
+    $("#btn14").click(function () {
+        $.tinyNotice("close");
+    });
+    $("#btn15").click(function () {
+        $.tinyNotice({
+            setConfirm: "fa",
+            statusTitle: "عنوان",
+            statusText: "داده های جدید ثبت شوند ؟"
+        });
+    });
+    $("#btn16").click(function () {
+        $.tinyNotice({
+            setConfirm: "en",
+            statusTitle: "Confirm mod",
+            statusText: "default button topic!"
+        });
+    });
+    $("#btn17").click(function () {
+        $.tinyNotice({
+            setConfirm: {ok: "ok,i'm ready", cancel: "no,tanks"},
+            statusTitle: "Confirm mod",
+            statusText: "custom button topic!"
+        });
+
+    });
+    $("#btn18").click(function () {
+        $.tinyNotice({
+            setConfirm: "en",
+            statusTitle: "Confirm mod",
+            statusText: "default button topic!",
+            accept: function () {
+                alert("ok");
+            },
+            cancel: function () {
+                alert("cancel");
+            }
+        });
+    });
+</script>
+<!-- /scripts -->
+</body>
+</html>
