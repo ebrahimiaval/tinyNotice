@@ -1,7 +1,6 @@
 # tinyNotice
+JQuery alert and confirm plugin.in use like Java Script alert() and confirm() fast and simple and in vision is like new modern template.
 tinyNotice V2.0.0 : use SCSS to create theme and change all structures and fix bugs.
-
-JQuery Notification or confirm Plugin to use fast and simple.don't need special config.to try it,run index.html in this project file.
 
 
 ## Getting Started
