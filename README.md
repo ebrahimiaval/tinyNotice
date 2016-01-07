@@ -5,7 +5,6 @@ JQuery Notification or confirm Plugin to use fast and simple.don't need special 
 
 
 ## Getting Started
-
 ```html
 <link rel="stylesheet" href="tinyNotice/tinyNotice-theme.css">
 <script src="jquery-1.11.3.min.js"></script>
@@ -16,22 +15,17 @@ JQuery Notification or confirm Plugin to use fast and simple.don't need special 
 ## Usage ##
 can config tinyNotice with inline option or object option for alert mod and for config confirm mod use object option.
 
+### 1) inline option ###
 
-### 1)inline option ###
+- statusTitle : title of notice. type is string. default = ""
+- statusText  : notice text. type is string. default = ""
+- status : One of these (note , warning , success , error , info). type is string. default = "note"
+- ifeTime : time per ms. type is number. default = 4000
 
-"statusTitle" : title of notice / type is string / default = ""
-
-"statusText" : notice text / type is string / default = ""
-
-"status" : note || warning || success || error || info / type is string / default = "note"
-
-lifeTime : time per ms / type is number / default = 4000
-
+structure :
 ```html
 <script>
-	$(function () {
-		$.tinyNotice( ["statusTitle"] ,"statusText",["status"],[lifeTime]);
-	});
+    $.tinyNotice( [statusTitle] ,statusText,[status],[lifeTime]);
 </script>
 ```
 
@@ -40,7 +34,7 @@ examples :
 $.tinyNotice("this is a satatus text without status title");
 ```
 ```js
-$.tinyNotice("notice title","this is a satatus text ");
+$.tinyNotice("sample title","sample satatus text ");
 ```
 ```js
 $.tinyNotice("this is a satatus text without status title" , "warning");
@@ -50,37 +44,36 @@ $.tinyNotice("notice title","this is a satatus text " , "warning" , 6000);
 ```
 --------------------------------------------------------------------------------
 
-### 2)object option ###
+### 2) object option ###
 
+structure :
 ```html
 <script>
-	$(function () {
-	    //default options
-	    var option = {
-                     statusTitle : "",
-                     statusText : "",
-                     status : "note",
-                     lifeTime : 4000,
-                     setConfirm : false,
-                     accept : function(){ //run when click accept button },
-                     cancel :function(){  //run when click cancel button }
-                     callback:function(){ //run when close or expiration lifeTime}
-                    }
-		$.tinyNotice(options);
-	});
+    //default options
+    var option = {
+                 statusTitle : "",
+                 statusText : "",
+                 status : "note",
+                 lifeTime : 4000,
+                 setConfirm : false,
+                 accept : function(){ //run when click accept button },
+                 cancel :function(){  //run when click cancel button }
+                 callback:function(){ //run when close or expiration lifeTime}
+                }
+    $.tinyNotice(options);
 </script>
 ```
 
-#### 2-1)confirm mod ####
+#### 2-1) confirm mod ####
  if set option.setConfirm true or "en" or "fa" or {ok:"..." , cancel:".."} tinyNotice swith to confrim mod.
 
 examples :
 ```js
 //default english button title
- $.tinyNotice({
-            setConfirm: "fa",
-            statusTitle: "عنوان",
-            statusText: "داده های جدید ثبت شوند ؟"
+$.tinyNotice({
+            setConfirm: "en",
+            statusTitle: "Confirm mod",
+            statusText: "default button topic!"
         });
 ```
 ```js
@@ -100,7 +93,7 @@ $.tinyNotice({
         });
 ```
 
-#### 2-1-1)confirm event ####
+#### 2-1-1) confirm events ####
 examples :
 ```js
 //default english button title
@@ -118,8 +111,7 @@ $.tinyNotice({
 
 ```
 
-
-#### 2-2)status ####
+#### 2-2) status ####
 examples : 
 ```js
 $.tinyNotice({
@@ -129,7 +121,7 @@ $.tinyNotice({
               });
 ```
 
-#### 2-3)callback ####
+#### 2-3) callback ####
 examples :
 ```js
 //custom button title
@@ -142,7 +134,7 @@ $.tinyNotice({
         });
 ```
 
-## close [event] ##
+### 3) close [event] ###
 ```js
 $.tinyNotice("close");
 ```
