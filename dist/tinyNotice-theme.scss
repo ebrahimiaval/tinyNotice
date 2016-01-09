@@ -31,6 +31,9 @@
     padding: 3px;
     display: none;
     box-sizing: border-box;
+    &:before{
+        content : "X";
+    }
   }
   &:hover > span {
     display: block;

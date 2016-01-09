@@ -129,7 +129,7 @@ window.option = {};
         //build
         function build() {
             var buttonView = "";
-            var closeBtnView = "<span>X</span>";
+            var closeBtnView = "<span></span>";
             var okBtnTopic = "ok";
             var cancelBtnTopic = "cancel";
 
