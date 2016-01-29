@@ -1,14 +1,27 @@
 /*
- *   About : tinyNotic 2.0.0
+ *   About : tinyNotic 2.1.0
  *   Created and published by : mohammad ebrahimi aval
  *   publisher site :http://ebrahimiaval.ir
  */
 
 var tinyNoticeSetTimeOutVar = null;
-window.option = {};
 (function ($) {
     $.tinyNotice = function (paramet) {
         var inputedOption = {};
+        var option = {
+            statusTitle: "",
+            statusText: "",
+            status: "note",
+            lifeTime: 4000,
+            setConfirm: false,
+            accept: function () {
+            },
+            cancel: function () {
+            },
+            callback: function () {
+            },
+        };
+
         if (arguments.length == 1) {//have 1 arguments
             if ($.isPlainObject(arguments[0])) {//if is a object
                 inputedOption = arguments[0];//set to extand potions
@@ -82,19 +95,7 @@ window.option = {};
         }
 
         //extend options
-        var option = $.extend({
-            statusTitle: "",
-            statusText: "",
-            status: "note",
-            lifeTime: 4000,
-            setConfirm: false,
-            accept: function () {
-            },
-            cancel: function () {
-            },
-            callback: function () {
-            },
-        }, inputedOption || {});
+        option = $.extend(option, inputedOption || {});
 
 
         //alert for invalid arguments
